@@ -84,7 +84,7 @@ class PlayerShip from Ship
  				screenWidth * 0.8, screenHeight * 0.9, 20, GRAY)
 		
 		elseif powerShotActive		
-			DrawText("MEAG SHOT: " + ceil(5 - _powerTimer),
+			DrawText("MEGA SHOT: " + ceil(5 - _powerTimer),
  				screenWidth * 0.8, screenHeight * 0.9, 20, GRAY)
 		ok
 
@@ -94,8 +94,8 @@ class PlayerShip from Ship
 	# Function to draw a shield
 	func drawShield
 		if powerShieldActive
-			image = LoadImage("Assets/shield1.png")
-			tex = LoadTextureFromImage(image)
+			image = resources.image("Assets/shield1.png")
+			tex = resources.texture(image)
 			DrawTexture(tex, position.x - 10, position.y - 10, WHITE)
 		ok
 

@@ -1,5 +1,6 @@
 load "stdlibcore.ring"
 load "raylib.ring"
+load "Resources.ring"
 load "Fire.ring"
 load "Ship.ring"
 load "PlayerShip.ring"
@@ -42,16 +43,16 @@ Sounds 	= [
 	]
 
 # Play music
-mainMusic 	= LoadMusicStream("assets/Dimensions.ogg")
+mainMusic 	= LoadMusicStream("Assets/Dimensions.ogg")
 PlayMusicStream(mainMusic)
 
 # Waves init
 generateWave()
 
 # Load background
-backgroundImage = LoadImage("assets/black.png")
+backgroundImage = resources.Image("Assets/black.png")
 ImageResize(backgroundImage, screenWidth, screenHeight)
-backgroundTex = LoadTextureFromImage(backgroundImage)
+backgroundTex = resources.texture(backgroundImage)
 
 
 # Scenes
@@ -203,7 +204,7 @@ func generateEnemy index, type
 		setTimeBetweenShots(1)
 		scale = -1
 	}
-# Function to return ship type using the curent wave state
+# Function to return ship type using the current wave state
 func getShipType
 	if currentWave >= 15 return 4
 	elseif currentWave >= 10 return 3
